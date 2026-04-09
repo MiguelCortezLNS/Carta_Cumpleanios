@@ -1,0 +1,386 @@
+/* ============================================================
+   SPLASH SCREEN — Birthday Splash
+   ============================================================ */
+
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(8px, 1.8vh, 18px);
+  padding: 20px 16px;
+  background: radial-gradient(ellipse at 50% 20%, #6b0099 0%, #2e0055 45%, #0e001f 100%);
+  overflow: hidden;
+  animation: splashIn 0.6s ease both;
+}
+
+.splash--leaving {
+  animation: splashOut 0.9s ease both;
+  pointer-events: none;
+}
+
+@keyframes splashIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes splashOut {
+  from { opacity: 1; transform: scale(1); }
+  to   { opacity: 0; transform: scale(1.08); }
+}
+
+/* ── Stars ─────────────────────────────────── */
+
+.splash-star {
+  position: absolute;
+  border-radius: 50%;
+  background: white;
+  pointer-events: none;
+  animation: starTwinkle var(--t, 2s) ease-in-out var(--d, 0s) infinite alternate;
+}
+
+@keyframes starTwinkle {
+  from { opacity: 0.1;  transform: scale(0.7); }
+  to   { opacity: 0.95; transform: scale(1.4); }
+}
+
+/* ── Confetti ──────────────────────────────── */
+
+.splash-confetti {
+  position: absolute;
+  top: -14px;
+  pointer-events: none;
+  animation: confettiFall var(--t, 4s) linear var(--d, 0s) infinite;
+}
+
+@keyframes confettiFall {
+  0%   { transform: translateY(0)     rotate(0deg);   opacity: 1; }
+  85%  { opacity: 0.7; }
+  100% { transform: translateY(110vh) rotate(760deg); opacity: 0; }
+}
+
+/* ── Title ─────────────────────────────────── */
+
+.splash-title {
+  font-family: 'Dancing Script', 'Georgia', cursive;
+  font-size: clamp(2rem, 7vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: center;
+  margin: 0;
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 35%, #ff9a9e 65%, #e89cf7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 2px 18px rgba(255, 140, 200, 0.6));
+  animation: titleIn 0.8s ease both 0.2s;
+  margin-bottom: 25px;
+}
+
+@keyframes titleIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Cake wrap (handles entrance animation) ── */
+
+.cake-wrap {
+  animation: cakeIn 0.8s ease both 0.35s;
+}
+
+@keyframes cakeIn {
+  from { opacity: 0; transform: translateY(22px) scale(0.9); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ── Cake (handles float animation) ─────────── */
+
+.cake {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  filter: drop-shadow(0 18px 38px rgba(255, 80, 160, 0.45));
+  animation: cakeFloat 3.5s ease-in-out 1.15s infinite;
+}
+
+@keyframes cakeFloat {
+  0%, 100% { transform: translateY(0px);  }
+  50%       { transform: translateY(-9px); }
+}
+
+/* ── Candles row ───────────────────────────── */
+
+.cake__candles {
+  display: flex;
+  gap: clamp(10px, 2.4vw, 20px);
+  padding: 0 clamp(12px, 2vw, 20px);
+  position: relative;
+  z-index: 2;
+}
+
+/* ── Single candle ─────────────────────────── */
+
+.candle {
+  position: relative;
+  width: clamp(11px, 2vw, 15px);
+  height: clamp(36px, 6vw, 52px);
+  border-radius: 6px 6px 3px 3px;
+  flex-shrink: 0;
+  animation: candleSwing 2s ease-in-out calc(var(--ci, 0) * 0.28s) infinite;
+}
+
+/* Candy-stripe highlight */
+.candle::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0,            transparent 5px,
+    rgba(255,255,255,0.24) 5px, rgba(255,255,255,0.24) 7px
+  );
+}
+
+@keyframes candleSwing {
+  0%,  100% { transform: rotate(0deg);     }
+  33%        { transform: rotate(2.5deg);   }
+  66%        { transform: rotate(-2.5deg);  }
+}
+
+/* Wick */
+.candle__wick {
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 7px;
+  background: #2a1a00;
+  border-radius: 1px 1px 0 0;
+}
+
+/* Flame container */
+.candle__flame-wrap {
+  position: absolute;
+  top: -34px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 32px;
+  pointer-events: none;
+}
+
+/* Glow halo */
+.candle__glow {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 215, 50, 0.9) 0%, transparent 65%);
+  filter: blur(6px);
+  animation: glowPulse 0.45s ease-in-out infinite alternate;
+}
+
+@keyframes glowPulse {
+  from { opacity: 0.5;  transform: scale(0.82); }
+  to   { opacity: 1;    transform: scale(1.2);  }
+}
+
+/* Flame shape */
+.candle__flame {
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 13px;
+  height: 23px;
+  background: radial-gradient(
+    ellipse at 50% 88%,
+    #fff     0%,
+    #ffe53b 18%,
+    #ff9800 48%,
+    rgba(255, 45, 0, 0.22) 78%,
+    transparent 100%
+  );
+  border-radius: 50% 50% 28% 28%;
+  animation: flameDance 0.42s ease-in-out infinite alternate;
+}
+
+/* Inner bright core */
+.candle__flame::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 9px;
+  background: white;
+  border-radius: 50% 50% 25% 25%;
+  opacity: 0.88;
+}
+
+@keyframes flameDance {
+  from { transform: translateX(-50%) scaleX(1)    scaleY(1)    skewX(0deg)  rotate(0deg);  }
+  to   { transform: translateX(-50%) scaleX(0.78) scaleY(1.12) skewX(5deg)  rotate(3deg);  }
+}
+
+/* ── Cake tiers ────────────────────────────── */
+
+.cake__tier {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  position: relative;
+}
+
+.cake__tier--top {
+  width: clamp(132px, 22vw, 176px);
+}
+
+.cake__tier--bottom {
+  width: clamp(188px, 30vw, 252px);
+  margin-top: -1px;
+}
+
+/* Tier body */
+.cake__body {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0 0 6px 6px;
+}
+
+.cake__tier--top .cake__body {
+  height: clamp(60px, 10vw, 88px);
+  background: linear-gradient(155deg, #ffaecb 0%, #ff6b9d 55%, #e0347e 100%);
+}
+
+.cake__tier--bottom .cake__body {
+  height: clamp(74px, 12vw, 106px);
+  background: linear-gradient(155deg, #f9a07a 0%, #f06543 55%, #cc3d1e 100%);
+}
+
+/* White frosting with drips — absolute, overlays top of body */
+.cake__frosting {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: clamp(20px, 3.2vw, 28px);
+  display: block;
+  overflow: visible;
+  z-index: 1;
+}
+
+/* Polka-dot decoration */
+.cake__dots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.26) 2.5px, transparent 2.5px);
+  background-size: 20px 20px;
+  background-position: 10px 14px;
+}
+
+/* ── Plate ─────────────────────────────────── */
+
+.cake__plate {
+  width: clamp(202px, 34vw, 278px);
+  height: clamp(13px, 2vw, 18px);
+  background: linear-gradient(to bottom, #f0e2c4, #d8be88);
+  border-radius: 0 0 50% 50% / 0 0 100% 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Subtitle ──────────────────────────────── */
+
+.splash-subtitle {
+  font-family: 'Dancing Script', 'Georgia', cursive;
+  font-size: clamp(1.5rem, 4.5vw, 2.3rem);
+  color: #ffecd2;
+  text-shadow: 0 0 20px rgba(255, 200, 120, 0.8);
+  margin: 0;
+  letter-spacing: 2px;
+  animation: subtitleIn 0.8s ease both 0.55s;
+}
+
+@keyframes subtitleIn {
+  from { opacity: 0; letter-spacing: 8px; }
+  to   { opacity: 1; letter-spacing: 2px; }
+}
+
+.splash-age {
+  display: inline-block;
+  font-family: 'Dancing Script', 'Georgia', cursive;
+  font-size: 1.15em;
+  font-weight: 700;
+  padding: 0 0.18em;
+  background: linear-gradient(135deg, #ffd93d, #ffb347);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+  filter: drop-shadow(0 0 8px rgba(255, 185, 50, 0.7));
+}
+
+/* ── CTA Button ────────────────────────────── */
+
+.splash-btn {
+  padding: clamp(11px, 1.8vh, 16px) clamp(28px, 5vw, 52px);
+  font-size: clamp(0.9rem, 2.2vw, 1.05rem);
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: #2a0050;
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 55%, #ff9a9e 100%);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow:
+    0 0 0 3px rgba(255, 180, 150, 0.25),
+    0 0 22px rgba(255, 100, 140, 0.5),
+    0 5px 16px rgba(0, 0, 0, 0.35);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  animation: btnIn 0.8s ease both 0.7s;
+}
+
+.splash-btn:hover {
+  transform: scale(1.07) translateY(-2px);
+  box-shadow:
+    0 0 0 3px rgba(255, 180, 150, 0.5),
+    0 0 32px rgba(255, 100, 140, 0.75),
+    0 8px 22px rgba(0, 0, 0, 0.35);
+}
+
+.splash-btn:active {
+  transform: scale(0.97) translateY(0);
+}
+
+@keyframes btnIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Responsive tweaks ─────────────────────── */
+
+/* Very small phones (< 360px) */
+@media (max-width: 359px) {
+  .cake__tier--top    { width: 120px; }
+  .cake__tier--bottom { width: 170px; }
+  .cake__plate        { width: 182px; }
+  .cake__candles      { gap: 8px; }
+}
+
+/* Landscape phones */
+@media (max-height: 500px) and (orientation: landscape) {
+  .splash {
+    gap: 5px;
+    justify-content: center;
+  }
+  .splash-title    { font-size: clamp(1.3rem, 5vw, 2rem); }
+  .splash-subtitle { font-size: 1.1rem; }
+  .cake__tier--top    .cake__body { height: 48px; }
+  .cake__tier--bottom .cake__body { height: 58px; }
+  .candle { height: 30px; }
+}
