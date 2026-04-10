@@ -5,6 +5,7 @@ const NAV_LINKS = [
   { label: 'Brous',      href: '#brous'     },
   { label: 'Recuerdos',  href: '#recuerdos' },
   { label: 'Carta',      href: '#carta'     },
+  { label: 'Razones',    href: '#razones'    },
   { label: "Pa' Emi",    href: '#pa-emi'    },
 ]
 

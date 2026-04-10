@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Confetti from './components/Confetti'
 import Stars from './components/Stars'
+import { BIRTHDAY_DATE, calcularEdad } from './utils/birthday'
 import './SplashScreen.css'
 
 const CANDLES = [
@@ -13,20 +14,6 @@ const CANDLES = [
 
 interface Props {
   onDone: () => void
-}
-
-// Fecha de nacimiento (año, mes-1, día)
-const BIRTHDAY_DATE = new Date(2002, 3, 17) // 17 de abril de 2002
-
-/* Funcion para calcular la edad del cumpleañero segun la fecha de nacimiento */
-function calcularEdad(fechaNacimiento: Date): number {
-  const hoy = new Date()
-  let edad = hoy.getFullYear() - fechaNacimiento.getFullYear()
-  const mes = hoy.getMonth() - fechaNacimiento.getMonth()
-  if (mes < 0 || (mes === 0 && hoy.getDate() < fechaNacimiento.getDate())) {
-    edad--
-  }
-  return edad
 }
 
 
