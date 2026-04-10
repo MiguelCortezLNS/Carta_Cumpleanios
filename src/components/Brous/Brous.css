@@ -1,6 +1,14 @@
-/* ============================================================
-   BROUS — Birthday section
-   ============================================================ */
+
+@keyframes brousZoomOut {
+  from { transform: scale(1);   opacity: 1; }
+  to   { transform: scale(0);   opacity: 0; }
+}
+
+@keyframes brousZoomIn {
+  from { transform: scale(0);   opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
 
 .brous {
   display: flex;
@@ -113,42 +121,6 @@
 
 .brous__photo--entering {
   animation: brousZoomIn var(--brous-t, 380ms) cubic-bezier(0.0, 0, 0.4, 1) forwards;
-}
-
-@keyframes brousZoomOut {
-  from { transform: scale(1);   opacity: 1; }
-  to   { transform: scale(0);   opacity: 0; }
-}
-
-@keyframes brousZoomIn {
-  from { transform: scale(0);   opacity: 0; }
-  to   { transform: scale(1);   opacity: 1; }
-}
-
-/* ── Dots indicator ───────────────────────── */
-
-.brous__dots {
-  position: absolute;
-  bottom: 14px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 6px;
-  z-index: 2;
-}
-
-.brous__dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.35);
-  transition: background 0.3s, transform 0.3s;
-  flex-shrink: 0;
-}
-
-.brous__dot--active {
-  background: #fff;
-  transform: scale(1.35);
 }
 
 /* ── Hidden preloader ─────────────────────── */

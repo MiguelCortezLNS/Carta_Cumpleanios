@@ -1,19 +1,20 @@
 import { useState, useEffect } from 'react'
-import { BIRTHDAY_DATE, calcularEdad } from '../../utils/birthday'
-import './Brous.css'
+import './recuerdos.css'
 
 const PHOTOS = [
+  '/images/bros.jpg',
+  '/images/WhatsApp Image 2026-04-09 at 3.39.14 PM.jpeg',
   '/images/WhatsApp Image 2026-04-09 at 3.39.14 PM (1).jpeg',
   '/images/WhatsApp Image 2026-04-09 at 3.39.14 PM (2).jpeg',
   '/images/WhatsApp Image 2026-04-09 at 3.39.14 PM (3).jpeg',
-  '/images/WhatsApp Image 2026-04-09 at 3.39.14 PM.jpeg',
+  '/images/WhatsApp Image 2026-04-09 at 3.39.15 PM.jpeg',
   '/images/WhatsApp Image 2026-04-09 at 3.39.15 PM (1).jpeg',
   '/images/WhatsApp Image 2026-04-09 at 3.39.15 PM (2).jpeg',
-  '/images/WhatsApp Image 2026-04-09 at 3.39.15 PM.jpeg',
   '/images/WhatsApp Image 2026-04-09 at 3.50.12 PM.jpeg',
   '/images/WhatsApp Image 2026-04-09 at 3.50.13 PM.jpeg',
   '/images/WhatsApp Image 2026-04-09 at 3.50.14 PM.jpeg',
   '/images/WhatsApp Image 2026-04-09 at 3.50.18 PM.jpeg',
+  '/images/WhatsApp Image 2026-04-09 at 3.50.19 PM.jpeg',
   '/images/WhatsApp Image 2026-04-09 at 3.50.19 PM (1).jpeg',
   '/images/WhatsApp Image 2026-04-09 at 3.50.19 PM (2).jpeg',
   '/images/WhatsApp Image 2026-04-09 at 3.50.19 PM (3).jpeg',
@@ -21,19 +22,18 @@ const PHOTOS = [
   '/images/WhatsApp Image 2026-04-09 at 3.50.19 PM (5).jpeg',
   '/images/WhatsApp Image 2026-04-09 at 3.50.19 PM (6).jpeg',
   '/images/WhatsApp Image 2026-04-09 at 3.50.19 PM (7).jpeg',
-  '/images/WhatsApp Image 2026-04-09 at 3.50.19 PM.jpeg',
+  '/images/WhatsApp Image 2026-04-09 at 6.01.27 PM.jpeg',
   '/images/WhatsApp Image 2026-04-09 at 6.01.27 PM (1).jpeg',
   '/images/WhatsApp Image 2026-04-09 at 6.01.27 PM (2).jpeg',
   '/images/WhatsApp Image 2026-04-09 at 6.01.27 PM (3).jpeg',
-  '/images/WhatsApp Image 2026-04-09 at 6.01.27 PM.jpeg',
 ]
 
-const DISPLAY_MS = 4000
+const DISPLAY_MS = 2000
 const TRANSITION_MS = 380
 
 type Phase = 'visible' | 'exiting' | 'entering'
 
-export default function Brous() {
+export default function Recuerdos() {
   const [idx, setIdx] = useState(0)
   const [phase, setPhase] = useState<Phase>('entering')
   const [preloadSrc, setPreloadSrc] = useState<string | null>(null)
@@ -60,39 +60,29 @@ export default function Brous() {
   }, [phase, idx])
 
   return (
-    <section id="brous" className="brous">
+    <section id="recuerdos" className="recuerdos">
+      <div className="recuerdos__bg" aria-hidden="true" />
+
+      <div className="recuerdos__overlay" aria-hidden="true" />
 
       {preloadSrc && (
-        <img src={preloadSrc} alt="" aria-hidden="true" className="brous__preloader" />
+        <img src={preloadSrc} alt="" aria-hidden="true" className="recuerdos__preloader" />
       )}
 
-      <div className="brous__message">
-        <span className="brous__tag">Para el Emi</span>
-        <h2 className="brous__title">¡Feliz cumpleaños,<br />Emiliano!</h2>
-        <p className="brous__text">
-          Bro, hoy es tu día y no podía dejarlo pasar sin decirte lo mucho que
-          me alegra tenerte como amigo. Eres de esas personas que hacen que
-          todo sea más divertido, más genuino y más chido, por eso te quiero pto.
-        </p>
-        <p className="brous__text">
-          Que este año te traiga todo lo que mereces —y te mereces un chingo—.
-          Celebra fuerte, disfrútalo al máximo y sabe que aquí estamos para lo
-          que sea. ¡Feliz cumpleaños!&nbsp;🎉
-        </p>
-        <div className="brous__badge">🎂 {calcularEdad(BIRTHDAY_DATE)} añitos de ser mi putita 🎂</div>
-      </div>
+      <div className="recuerdos__inner">
+        <div className="recuerdos__heading">
+          <h2 className="recuerdos__title">Recuerdos</h2>
+          <p className="recuerdos__subtitle">Algunos momentos que quedaron grabados</p>
+        </div>
 
-      {/* Photo slideshow */}
-      <div className="brous__gallery">
-        <div className="brous__frame">
+        <div className="recuerdos__frame">
           <img
             src={PHOTOS[idx]}
-            alt={`Foto ${idx + 1} de ${PHOTOS.length}`}
-            className={`brous__photo brous__photo--${phase}`}
+            alt={`Recuerdo ${idx + 1} de ${PHOTOS.length}`}
+            className={`recuerdos__photo recuerdos__photo--${phase}${PHOTOS[idx] === '/images/bros.jpg' ? ' recuerdos__photo--contain' : ''}`}
           />
         </div>
       </div>
-
     </section>
   )
 }

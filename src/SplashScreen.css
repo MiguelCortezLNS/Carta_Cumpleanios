@@ -1,6 +1,55 @@
-/* ============================================================
-   SPLASH SCREEN — Birthday Splash
-   ============================================================ */
+@keyframes splashIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes splashOut {
+  from { opacity: 1; transform: scale(1); }
+  to   { opacity: 0; transform: scale(1.08); }
+}
+
+@keyframes titleIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cakeIn {
+  from { opacity: 0; transform: translateY(22px) scale(0.9); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+
+@keyframes cakeFloat {
+  0%, 100% { transform: translateY(0px);  }
+  50%       { transform: translateY(-9px); }
+}
+
+@keyframes candleSwing {
+  0%,  100% { transform: rotate(0deg);     }
+  33%        { transform: rotate(2.5deg);   }
+  66%        { transform: rotate(-2.5deg);  }
+}
+
+
+@keyframes glowPulse {
+  from { opacity: 0.5;  transform: scale(0.82); }
+  to   { opacity: 1;    transform: scale(1.2);  }
+}
+
+@keyframes flameDance {
+  from { transform: translateX(-50%) scaleX(1)    scaleY(1)    skewX(0deg)  rotate(0deg);  }
+  to   { transform: translateX(-50%) scaleX(0.78) scaleY(1.12) skewX(5deg)  rotate(3deg);  }
+}
+
+@keyframes subtitleIn {
+  from { opacity: 0; letter-spacing: 8px; }
+  to   { opacity: 1; letter-spacing: 2px; }
+}
+
+@keyframes btnIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 
 .splash {
   position: fixed;
@@ -22,15 +71,6 @@
   pointer-events: none;
 }
 
-@keyframes splashIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-@keyframes splashOut {
-  from { opacity: 1; transform: scale(1); }
-  to   { opacity: 0; transform: scale(1.08); }
-}
 
 /* ── Title ─────────────────────────────────── */
 
@@ -50,10 +90,6 @@
   margin-bottom: 25px;
 }
 
-@keyframes titleIn {
-  from { opacity: 0; transform: translateY(-20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
 
 /* ── Cake wrap (handles entrance animation) ── */
 
@@ -61,10 +97,7 @@
   animation: cakeIn 0.8s ease both 0.35s;
 }
 
-@keyframes cakeIn {
-  from { opacity: 0; transform: translateY(22px) scale(0.9); }
-  to   { opacity: 1; transform: translateY(0) scale(1); }
-}
+
 
 /* ── Cake (handles float animation) ─────────── */
 
@@ -76,10 +109,6 @@
   animation: cakeFloat 3.5s ease-in-out 1.15s infinite;
 }
 
-@keyframes cakeFloat {
-  0%, 100% { transform: translateY(0px);  }
-  50%       { transform: translateY(-9px); }
-}
 
 /* ── Candles row ───────────────────────────── */
 
@@ -115,11 +144,6 @@
   );
 }
 
-@keyframes candleSwing {
-  0%,  100% { transform: rotate(0deg);     }
-  33%        { transform: rotate(2.5deg);   }
-  66%        { transform: rotate(-2.5deg);  }
-}
 
 /* Wick */
 .candle__wick {
@@ -152,11 +176,6 @@
   background: radial-gradient(circle, rgba(255, 215, 50, 0.9) 0%, transparent 65%);
   filter: blur(6px);
   animation: glowPulse 0.45s ease-in-out infinite alternate;
-}
-
-@keyframes glowPulse {
-  from { opacity: 0.5;  transform: scale(0.82); }
-  to   { opacity: 1;    transform: scale(1.2);  }
 }
 
 /* Flame shape */
@@ -193,10 +212,7 @@
   opacity: 0.88;
 }
 
-@keyframes flameDance {
-  from { transform: translateX(-50%) scaleX(1)    scaleY(1)    skewX(0deg)  rotate(0deg);  }
-  to   { transform: translateX(-50%) scaleX(0.78) scaleY(1.12) skewX(5deg)  rotate(3deg);  }
-}
+
 
 /* ── Cake tiers ────────────────────────────── */
 
@@ -276,10 +292,6 @@
   animation: subtitleIn 0.8s ease both 0.55s;
 }
 
-@keyframes subtitleIn {
-  from { opacity: 0; letter-spacing: 8px; }
-  to   { opacity: 1; letter-spacing: 2px; }
-}
 
 .splash-age {
   display: inline-block;
@@ -325,11 +337,6 @@
 
 .splash-btn:active {
   transform: scale(0.97) translateY(0);
-}
-
-@keyframes btnIn {
-  from { opacity: 0; transform: translateY(14px); }
-  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ── Responsive tweaks ─────────────────────── */
