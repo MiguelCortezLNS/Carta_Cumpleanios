@@ -3,6 +3,7 @@ import SplashScreen from './SplashScreen'
 import Confetti from './components/Confetti'
 import Stars from './components/Stars'
 import Header from './components/header/header'
+import Brous from './components/Brous/Brous'
 import './App.css'
 
 function App() {
@@ -18,9 +19,7 @@ function App() {
       {!showSplash && (
         <>
           <Header />
-          <div>
-            <h2>¡Feliz cumpleaños, Emi! 🎉</h2>
-          </div>
+          <Brous />
         </>
       )}
     </>
