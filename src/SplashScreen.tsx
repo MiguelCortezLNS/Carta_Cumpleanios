@@ -36,7 +36,7 @@ interface Props {
 }
 
 // Fecha de nacimiento (año, mes-1, día)
-const BIRTHDAY_DATE = new Date(2002, 3, 9) // 17 de abril de 2002
+const BIRTHDAY_DATE = new Date(2002, 3, 17) // 17 de abril de 2002
 
 /* Funcion para calcular la edad del cumpleañero segun la fecha de nacimiento */
 function calcularEdad(fechaNacimiento: Date): number {
