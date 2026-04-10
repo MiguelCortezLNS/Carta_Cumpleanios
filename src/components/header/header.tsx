@@ -6,6 +6,7 @@ const NAV_LINKS = [
   { label: 'Recuerdos',  href: '#recuerdos' },
   { label: 'Carta',      href: '#carta'     },
   { label: "Pa' Emi",    href: '#pa-emi'    },
+  { label: 'Razones',    href: '#razones'    },
 ]
 
 export default function Header() {
