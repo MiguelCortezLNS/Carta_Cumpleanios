@@ -1,27 +1,7 @@
 import { useState } from 'react'
+import Confetti from './components/Confetti'
+import Stars from './components/Stars'
 import './SplashScreen.css'
-
-// Deterministic positions so values don't change on re-render
-const STARS = Array.from({ length: 42 }, (_, i) => ({
-  id: i,
-  left: `${(i * 37.3 + 11) % 100}%`,
-  top: `${(i * 53.1 + 7) % 100}%`,
-  delay: `${((i * 0.19) % 3).toFixed(2)}s`,
-  duration: `${(1.5 + (i * 0.23) % 2).toFixed(2)}s`,
-  size: `${2 + (i % 3)}px`,
-}))
-
-const CONFETTI_COLORS = ['#ff6b9d', '#ffd93d', '#6bceff', '#a8ff78', '#ffb347', '#c3a1ff', '#ff9a9e']
-const CONFETTI = Array.from({ length: 52 }, (_, i) => ({
-  id: i,
-  left: `${(i * 31.7 + 5) % 100}%`,
-  color: CONFETTI_COLORS[i % CONFETTI_COLORS.length],
-  delay: `${((i * 0.23) % 5).toFixed(2)}s`,
-  duration: `${(3.5 + (i * 0.31) % 4).toFixed(2)}s`,
-  size: `${5 + (i % 7)}px`,
-  isCircle: i % 3 !== 0,
-  rotation: (i * 47) % 360,
-}))
 
 const CANDLES = [
   'linear-gradient(to bottom, #ff9a9e, #ff6b6b)',
@@ -36,7 +16,7 @@ interface Props {
 }
 
 // Fecha de nacimiento (año, mes-1, día)
-const BIRTHDAY_DATE = new Date(2002, 3, 9) // 17 de abril de 2002
+const BIRTHDAY_DATE = new Date(2002, 3, 17) // 17 de abril de 2002
 
 /* Funcion para calcular la edad del cumpleañero segun la fecha de nacimiento */
 function calcularEdad(fechaNacimiento: Date): number {
@@ -62,38 +42,10 @@ export default function SplashScreen({ onDone }: Props) {
     <div className={`splash${leaving ? ' splash--leaving' : ''}`}>
 
       {/* Stars */}
-      {STARS.map(s => (
-        <span
-          key={s.id}
-          className="splash-star"
-          style={{
-            left: s.left,
-            top: s.top,
-            width: s.size,
-            height: s.size,
-            '--t': s.duration,
-            '--d': s.delay,
-          } as React.CSSProperties}
-        />
-      ))}
+      <Stars fixed={false} />
 
       {/* Confetti */}
-      {CONFETTI.map(c => (
-        <span
-          key={c.id}
-          className="splash-confetti"
-          style={{
-            left: c.left,
-            backgroundColor: c.color,
-            width: c.size,
-            height: c.size,
-            borderRadius: c.isCircle ? '50%' : '2px',
-            transform: `rotate(${c.rotation}deg)`,
-            '--t': c.duration,
-            '--d': c.delay,
-          } as React.CSSProperties}
-        />
-      ))}
+      <Confetti fixed={false} />
 
       {/* Title */}
       <h1 className="splash-title">¡Feliz Cumpleaños!</h1>

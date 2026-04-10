@@ -32,36 +32,6 @@
   to   { opacity: 0; transform: scale(1.08); }
 }
 
-/* ── Stars ─────────────────────────────────── */
-
-.splash-star {
-  position: absolute;
-  border-radius: 50%;
-  background: white;
-  pointer-events: none;
-  animation: starTwinkle var(--t, 2s) ease-in-out var(--d, 0s) infinite alternate;
-}
-
-@keyframes starTwinkle {
-  from { opacity: 0.1;  transform: scale(0.7); }
-  to   { opacity: 0.95; transform: scale(1.4); }
-}
-
-/* ── Confetti ──────────────────────────────── */
-
-.splash-confetti {
-  position: absolute;
-  top: -14px;
-  pointer-events: none;
-  animation: confettiFall var(--t, 4s) linear var(--d, 0s) infinite;
-}
-
-@keyframes confettiFall {
-  0%   { transform: translateY(0)     rotate(0deg);   opacity: 1; }
-  85%  { opacity: 0.7; }
-  100% { transform: translateY(110vh) rotate(760deg); opacity: 0; }
-}
-
 /* ── Title ─────────────────────────────────── */
 
 .splash-title {
