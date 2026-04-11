@@ -5,6 +5,7 @@ import Stars from './components/Stars'
 import Header from './components/header/header'
 import Brous from './components/Brous/Brous'
 import Recuerdos from './components/recuerdos/recuerdos'
+import Carta from './components/carta/Carta'
 import './App.css'
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Header />
           <Brous />
           <Recuerdos />
+          <Carta />
         </>
       )}
     </>
