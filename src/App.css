@@ -1,3 +1,76 @@
+/* ── Pa' Emi section ──────────────────────── */
+
+.paemi-section {
+  position: relative;
+  z-index: 2;
+  padding: 96px 40px;
+  border-top: 1px solid rgba(192, 132, 252, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.paemi-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(107, 0, 153, 0.22) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.paemi-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+.paemi-section__title {
+  font-family: 'Dancing Script', 'Georgia', cursive;
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0;
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 40%, #e89cf7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.paemi-section__btn {
+  margin-top: 8px;
+  padding: 14px 36px;
+  border-radius: 999px;
+  border: 1px solid var(--accent-border);
+  background: var(--accent-bg);
+  color: var(--text-h);
+  font-family: 'Dancing Script', 'Georgia', cursive;
+  font-size: 1.4rem;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  transition: background 0.25s, box-shadow 0.25s, transform 0.2s;
+  box-shadow: 0 0 24px rgba(192, 132, 252, 0.2);
+}
+
+.paemi-section__btn:hover {
+  background: rgba(192, 132, 252, 0.28);
+  box-shadow: 0 0 40px rgba(192, 132, 252, 0.45);
+  transform: translateY(-2px);
+}
+
+.paemi-section__btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .paemi-section {
+    padding: 72px 20px;
+  }
+}
+
 .counter {
   font-size: 16px;
   padding: 5px 10px;
