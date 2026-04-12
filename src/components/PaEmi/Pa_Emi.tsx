@@ -14,7 +14,7 @@ export default function PaEmi({ onClose }: Props) {
         </button>
 
         <div className="paemi-photo-wrap">
-          <img src="/images/emi.png" alt="Emi" className="paemi-photo" />
+          <img src={`${import.meta.env.BASE_URL}images/emi.png`} alt="Emi" className="paemi-photo" />
         </div>
 
         <div className="paemi-message">
