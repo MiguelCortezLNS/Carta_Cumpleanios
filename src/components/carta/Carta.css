@@ -1,0 +1,235 @@
+/* ── Section ──────────────────────────────── */
+
+.carta {
+  position: relative;
+  padding: 96px 40px;
+  overflow: hidden;
+  z-index: 2;
+  border-top: 1px solid rgba(192, 132, 252, 0.15);
+}
+
+/* subtle radial glow at top-centre matching the rest of the page */
+.carta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(107, 0, 153, 0.28) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Inner layout ─────────────────────────── */
+
+.carta__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+}
+
+/* ── Heading block ────────────────────────── */
+
+.carta__heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.carta__tag {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-border);
+  border-radius: 999px;
+  padding: 4px 14px;
+  width: fit-content;
+}
+
+.carta__title {
+  font-family: 'Dancing Script', 'Georgia', cursive;
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0;
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 40%, #e89cf7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Letter card ──────────────────────────── */
+
+.carta__paper {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(192, 132, 252, 0.25);
+  border-radius: 20px;
+  padding: 52px 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  /* soft purple glow framing */
+  box-shadow:
+    0 0 0 1px rgba(192, 132, 252, 0.08),
+    0 24px 60px rgba(0, 0, 0, 0.45),
+    0 0 80px rgba(107, 0, 153, 0.18);
+
+  /* top decorative gradient stripe */
+  background-image:
+    linear-gradient(
+      rgba(192, 132, 252, 0.07) 0px,
+      rgba(192, 132, 252, 0.07) 3px,
+      transparent 3px
+    );
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+/* ── Letter opener ────────────────────────── */
+
+.carta__opener {
+  font-family: 'Dancing Script', 'Georgia', cursive;
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: var(--text-h);
+  margin: 0;
+}
+
+/* ── Body paragraphs ──────────────────────── */
+
+.carta__body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.carta__p {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--text);
+  margin: 0;
+}
+
+.carta__p--accent {
+  color: var(--text-h);
+  font-style: italic;
+}
+
+/* ── Divider ──────────────────────────────── */
+
+.carta__divider {
+  width: 60px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  margin: 4px auto;
+}
+
+/* ── Signature ────────────────────────────── */
+
+.carta__signature {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.carta__sign-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0.75;
+}
+
+.carta__sign-name {
+  font-family: 'Dancing Script', 'Georgia', cursive;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--text-h);
+  background: linear-gradient(120deg, #fcb69f 0%, #e89cf7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Bottom emoji row ────────────────────── */
+
+.carta__emojis {
+  display: flex;
+  gap: 12px;
+  font-size: 1.6rem;
+  justify-content: center;
+  opacity: 0.85;
+}
+
+/* ── Responsive ───────────────────────────── */
+
+@media (max-width: 768px) {
+  .carta {
+    padding: 60px 16px;
+  }
+
+  .carta__inner {
+    gap: 32px;
+  }
+
+  .carta__title {
+    font-size: clamp(2rem, 9vw, 2.8rem);
+  }
+
+  .carta__paper {
+    padding: 24px 18px;
+    gap: 16px;
+    border-radius: 16px;
+  }
+
+  .carta__opener {
+    font-size: 1.2rem;
+  }
+
+  .carta__body {
+    gap: 14px;
+  }
+
+  .carta__p {
+    font-size: 0.82rem;
+    line-height: 1.7;
+  }
+
+  .carta__sign-name {
+    font-size: 1.65rem;
+  }
+
+  .carta__emojis {
+    font-size: 1.35rem;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 380px) {
+  .carta {
+    padding: 48px 30px;
+  }
+
+  .carta__paper {
+    padding: 20px 12px;
+  }
+
+  .carta__p {
+    font-size: 0.78rem;
+  }
+}
