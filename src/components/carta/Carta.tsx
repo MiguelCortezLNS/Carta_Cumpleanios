@@ -13,32 +13,28 @@ export default function Carta() {
         {/* ── Letter card ── */}
         <div className="carta__paper">
 
-          <p className="carta__opener">Querido Emi,</p>
+          <p className="carta__opener"> Bros</p>
 
           <div className="carta__body">
             <p className="carta__p">
-              No todos los días te cruzas con alguien que, sin buscarlo, se vuelve parte
-              de las mejores historias que tienes para contar. Tú eres exactamente eso:
-              uno de esos amigos que aparecen en los momentos correctos y terminan
-              quedándose en los más importantes.
+              La neta we, eres un muy buen amigo, aunque ya no nos veamos tan seguido como antes, la neta eres
+              mi mejor amigo, no espere conocerte en el momento tan surrealista en el que te conoci haha por como me
+              obligaste a hablarle a ya tu sabes y desde ahi el que ya no se separo de mi lado fuiste tu.
+              Y que bueno que fue asi bro uwu.
             </p>
 
             <p className="carta__p carta__p--accent">
-              Qué afortunado soy de tenerte en mi vida.
+              Ojala sigamos siendo amigos por muchos años más, y que sigamos compartiendo momentos más juntos.
             </p>
 
             <p className="carta__p">
-              Hoy que cumples un año más, quiero que sepas que cada momento compartido
-              —las risas, las pendejadas, los planes que salieron mal y los que salieron
-              mejor de lo esperado— los guardo con mucho cariño. Contigo todo es más
-              chido, más auténtico y más divertido.
+              Hoy te deseo un muy buen cumpleaños tanto que te hice esta pagina we, si te voy a felicitar te voy a felicitar
+              de una manera que entendemos tu y yo como programadores uwu.
             </p>
 
             <p className="carta__p">
-              Eres de las personas que dan sin esperar nada a cambio, que están ahí
-              aunque sea inconveniente, y que hacen sentir a los demás que sí valen la
-              pena. Eso no es poca cosa, bro: es de las cosas más valiosas que alguien
-              puede ser.
+              No soy muy bueno escribiendo cartas we, pero si soy mejor programandote una uwu, de verdad eres un muy buen amigo y mi mejor amigo
+              espero pasar muchos más años siendo buenos amigos we.
             </p>
 
             <p className="carta__p">
@@ -48,14 +44,14 @@ export default function Carta() {
             </p>
 
             <p className="carta__p carta__p--accent">
-              Que los próximos 365 días sean tan grandes como tú los imaginas. 🎉
+              NO HOMO, tqm bro 💖
             </p>
           </div>
 
           <div className="carta__divider" />
 
           <div className="carta__signature">
-            <span className="carta__sign-label">Con cariño,</span>
+            <span className="carta__sign-label">Con cariño de: </span>
             <span className="carta__sign-name">Tu bro El Mike 💪🏻</span>
           </div>
 
